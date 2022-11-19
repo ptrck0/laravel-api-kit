@@ -1,0 +1,19 @@
+{
+    "data": {
+        "id": 1,
+        "name": "culpa",
+        "guard_name": "web",
+        "permissions": [
+            {
+                "id": 1,
+                "name": "est",
+                "guard_name": "web"
+            },
+            {
+                "id": 2,
+                "name": "vitae",
+                "guard_name": "web"
+            }
+        ]
+    }
+}

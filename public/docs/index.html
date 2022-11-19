@@ -1,0 +1,2785 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>api-kit Documentation</title>
+
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../docs/css/theme-default.style.css" media="screen">
+    <link rel="stylesheet" href="../docs/css/theme-default.print.css" media="print">
+
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.10/lodash.min.js"></script>
+
+    <link rel="stylesheet"
+          href="https://unpkg.com/@highlightjs/cdn-assets@10.7.2/styles/obsidian.min.css">
+    <script src="https://unpkg.com/@highlightjs/cdn-assets@10.7.2/highlight.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jets/0.14.1/jets.min.js"></script>
+
+    <style id="language-style">
+        /* starts out as display none and is replaced with js later  */
+                    body .content .bash-example code { display: none; }
+                    body .content .javascript-example code { display: none; }
+                    body .content .php-example code { display: none; }
+            </style>
+
+
+    <script src="../docs/js/theme-default-4.1.0.js"></script>
+
+</head>
+
+<body data-languages="[&quot;bash&quot;,&quot;javascript&quot;,&quot;php&quot;]">
+
+<a href="#" id="nav-button">
+    <span>
+        MENU
+        <img src="../docs/images/navbar.png" alt="navbar-image" />
+    </span>
+</a>
+<div class="tocify-wrapper">
+    
+            <div class="lang-selector">
+                                            <button type="button" class="lang-button" data-language-name="bash">bash</button>
+                                            <button type="button" class="lang-button" data-language-name="javascript">javascript</button>
+                                            <button type="button" class="lang-button" data-language-name="php">php</button>
+                    </div>
+    
+    <div class="search">
+        <input type="text" class="search" id="input-search" placeholder="Search">
+    </div>
+
+    <div id="toc">
+                    <ul id="tocify-header-introduction" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="introduction">
+                    <a href="#introduction">Introduction</a>
+                </li>
+                            </ul>
+                    <ul id="tocify-header-authenticating-requests" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="authenticating-requests">
+                    <a href="#authenticating-requests">Authenticating requests</a>
+                </li>
+                            </ul>
+                    <ul id="tocify-header-authentication" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="authentication">
+                    <a href="#authentication">Authentication</a>
+                </li>
+                                    <ul id="tocify-subheader-authentication" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="authentication-POSTapi-login">
+                                <a href="#authentication-POSTapi-login">Login</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="authentication-POSTapi-logout">
+                                <a href="#authentication-POSTapi-logout">Logout</a>
+                            </li>
+                                                                        </ul>
+                            </ul>
+                    <ul id="tocify-header-permissions" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="permissions">
+                    <a href="#permissions">Permissions</a>
+                </li>
+                                    <ul id="tocify-subheader-permissions" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="permissions-GETapi-admin-permissions">
+                                <a href="#permissions-GETapi-admin-permissions">Display a listing of the permissions.</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="permissions-POSTapi-admin-permissions">
+                                <a href="#permissions-POSTapi-admin-permissions">Store a newly created permission in storage.</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="permissions-GETapi-admin-permissions--id-">
+                                <a href="#permissions-GETapi-admin-permissions--id-">Display the specified permission.</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="permissions-PUTapi-admin-permissions--id-">
+                                <a href="#permissions-PUTapi-admin-permissions--id-">Update the specified permission in storage.</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="permissions-DELETEapi-admin-permissions--id-">
+                                <a href="#permissions-DELETEapi-admin-permissions--id-">Remove the specified permission from storage.</a>
+                            </li>
+                                                                        </ul>
+                            </ul>
+                    <ul id="tocify-header-roles" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="roles">
+                    <a href="#roles">Roles</a>
+                </li>
+                                    <ul id="tocify-subheader-roles" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="roles-GETapi-admin-roles">
+                                <a href="#roles-GETapi-admin-roles">Display a listing of the roles.</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="roles-POSTapi-admin-roles">
+                                <a href="#roles-POSTapi-admin-roles">Store a newly created role in storage.</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="roles-GETapi-admin-roles--id-">
+                                <a href="#roles-GETapi-admin-roles--id-">Display the specified role.</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="roles-PUTapi-admin-roles--id-">
+                                <a href="#roles-PUTapi-admin-roles--id-">Update the specified role in storage.</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="roles-DELETEapi-admin-roles--id-">
+                                <a href="#roles-DELETEapi-admin-roles--id-">Remove the specified role from storage.</a>
+                            </li>
+                                                                        </ul>
+                            </ul>
+                    <ul id="tocify-header-users" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="users">
+                    <a href="#users">Users</a>
+                </li>
+                                    <ul id="tocify-subheader-users" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="users-GETapi-admin-users">
+                                <a href="#users-GETapi-admin-users">Display a listing of the users.</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="users-POSTapi-admin-users">
+                                <a href="#users-POSTapi-admin-users">Store a newly created user in storage.</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="users-GETapi-admin-users--id-">
+                                <a href="#users-GETapi-admin-users--id-">Display the specified user.</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="users-PUTapi-admin-users--id-">
+                                <a href="#users-PUTapi-admin-users--id-">Update the specified user in storage.</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="users-DELETEapi-admin-users--id-">
+                                <a href="#users-DELETEapi-admin-users--id-">Remove the specified user from storage.</a>
+                            </li>
+                                                                        </ul>
+                            </ul>
+            </div>
+
+            <ul class="toc-footer" id="toc-footer">
+                            <li><a href="../docs/collection.json">View Postman collection</a></li>
+                            <li><a href="../docs/openapi.yaml">View OpenAPI spec</a></li>
+                            <li><a href="http://github.com/knuckleswtf/scribe">Documentation powered by Scribe ✍</a></li>
+                    </ul>
+        <ul class="toc-footer" id="last-updated">
+        <li>Last updated: November 3, 2022</li>
+    </ul>
+</div>
+
+<div class="page-wrapper">
+    <div class="dark-box"></div>
+    <div class="content">
+        <h1 id="introduction">Introduction</h1>
+<p>This documentation aims to provide all the information you need to work with our API.</p>
+<aside>As you scroll, you'll see code examples for working with the API in different programming languages in the dark area to the right (or as part of the content on mobile).
+You can switch the language used with the tabs at the top right (or from the nav menu at the top left on mobile).</aside>
+<blockquote>
+<p>Base URL</p>
+</blockquote>
+<pre><code class="language-yaml">http://localhost</code></pre>
+
+        <h1 id="authenticating-requests">Authenticating requests</h1>
+<p>Authenticate requests to this API's endpoints by sending an <strong><code>Authorization</code></strong> header with the value <strong><code>"Bearer {YOUR_AUTH_KEY}"</code></strong>.</p>
+<p>All authenticated endpoints are marked with a <code>requires authentication</code> badge in the documentation below.</p>
+<p>You can retrieve your token by visiting your dashboard and clicking <b>Generate API token</b>.</p>
+
+        <h1 id="authentication">Authentication</h1>
+
+    
+
+                                <h2 id="authentication-POSTapi-login">Login</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-POSTapi-login">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://localhost/api/login" \
+    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"username\": \"enim\",
+    \"password\": \"omnis\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/login"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "username": "enim",
+    "password": "omnis"
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://localhost/api/login',
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+        'json' =&gt; [
+            'username' =&gt; 'enim',
+            'password' =&gt; 'omnis',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-login">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;token&quot;: &quot;abc123&quot;
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (403):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;error&quot;: &quot;invalid credentials&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-POSTapi-login" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-login"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-login"></code></pre>
+</span>
+<span id="execution-error-POSTapi-login" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-login"></code></pre>
+</span>
+<form id="form-POSTapi-login" data-method="POST"
+      data-path="api/login"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-login', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/login</code></b>
+        </p>
+                <p>
+            <label id="auth-POSTapi-login" hidden>Authorization header:
+                <b><code>Bearer </code></b>
+                <input type="text"
+                       name="Authorization"
+                       data-prefix="Bearer "
+                       data-endpoint="POSTapi-login"
+                       data-component="header"></label>
+        </p>
+                        <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>username</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text"
+               name="username"
+               data-endpoint="POSTapi-login"
+               value="enim"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+                <p>
+            <b><code>password</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text"
+               name="password"
+               data-endpoint="POSTapi-login"
+               value="omnis"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+        </form>
+
+                    <h2 id="authentication-POSTapi-logout">Logout</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-POSTapi-logout">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://localhost/api/logout" \
+    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/logout"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://localhost/api/logout',
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-logout">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;success&quot;: &quot;logged out&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-POSTapi-logout" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-logout"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-logout"></code></pre>
+</span>
+<span id="execution-error-POSTapi-logout" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-logout"></code></pre>
+</span>
+<form id="form-POSTapi-logout" data-method="POST"
+      data-path="api/logout"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-logout', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/logout</code></b>
+        </p>
+                <p>
+            <label id="auth-POSTapi-logout" hidden>Authorization header:
+                <b><code>Bearer </code></b>
+                <input type="text"
+                       name="Authorization"
+                       data-prefix="Bearer "
+                       data-endpoint="POSTapi-logout"
+                       data-component="header"></label>
+        </p>
+                </form>
+
+                <h1 id="permissions">Permissions</h1>
+
+    
+
+                                <h2 id="permissions-GETapi-admin-permissions">Display a listing of the permissions.</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-GETapi-admin-permissions">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost/api/admin/permissions" \
+    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/admin/permissions"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'http://localhost/api/admin/permissions',
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-admin-permissions">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;data&quot;: [
+        {
+            &quot;id&quot;: 1,
+            &quot;name&quot;: &quot;est&quot;,
+            &quot;guard_name&quot;: &quot;web&quot;,
+            &quot;roles&quot;: [
+                {
+                    &quot;id&quot;: 1,
+                    &quot;name&quot;: &quot;culpa&quot;,
+                    &quot;guard_name&quot;: &quot;web&quot;
+                }
+            ]
+        },
+        {
+            &quot;id&quot;: 2,
+            &quot;name&quot;: &quot;vitae&quot;,
+            &quot;guard_name&quot;: &quot;web&quot;,
+            &quot;roles&quot;: [
+                {
+                    &quot;id&quot;: 1,
+                    &quot;name&quot;: &quot;culpa&quot;,
+                    &quot;guard_name&quot;: &quot;web&quot;
+                }
+            ]
+        }
+    ]
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-admin-permissions" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-admin-permissions"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-admin-permissions"></code></pre>
+</span>
+<span id="execution-error-GETapi-admin-permissions" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-admin-permissions"></code></pre>
+</span>
+<form id="form-GETapi-admin-permissions" data-method="GET"
+      data-path="api/admin/permissions"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-admin-permissions', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/admin/permissions</code></b>
+        </p>
+                <p>
+            <label id="auth-GETapi-admin-permissions" hidden>Authorization header:
+                <b><code>Bearer </code></b>
+                <input type="text"
+                       name="Authorization"
+                       data-prefix="Bearer "
+                       data-endpoint="GETapi-admin-permissions"
+                       data-component="header"></label>
+        </p>
+                </form>
+
+                    <h2 id="permissions-POSTapi-admin-permissions">Store a newly created permission in storage.</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-POSTapi-admin-permissions">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://localhost/api/admin/permissions" \
+    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"name\": \"fugiat\",
+    \"guard_name\": \"est\",
+    \"roles\": [
+        \"et\"
+    ]
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/admin/permissions"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "name": "fugiat",
+    "guard_name": "est",
+    "roles": [
+        "et"
+    ]
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://localhost/api/admin/permissions',
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+        'json' =&gt; [
+            'name' =&gt; 'fugiat',
+            'guard_name' =&gt; 'est',
+            'roles' =&gt; [
+                'et',
+            ],
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-admin-permissions">
+            <blockquote>
+            <p>Example response (201):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;data&quot;: {
+        &quot;id&quot;: 1,
+        &quot;name&quot;: &quot;est&quot;,
+        &quot;guard_name&quot;: &quot;web&quot;,
+        &quot;roles&quot;: [
+            {
+                &quot;id&quot;: 1,
+                &quot;name&quot;: &quot;culpa&quot;,
+                &quot;guard_name&quot;: &quot;web&quot;
+            }
+        ]
+    }
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-POSTapi-admin-permissions" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-admin-permissions"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-admin-permissions"></code></pre>
+</span>
+<span id="execution-error-POSTapi-admin-permissions" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-admin-permissions"></code></pre>
+</span>
+<form id="form-POSTapi-admin-permissions" data-method="POST"
+      data-path="api/admin/permissions"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-admin-permissions', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/admin/permissions</code></b>
+        </p>
+                <p>
+            <label id="auth-POSTapi-admin-permissions" hidden>Authorization header:
+                <b><code>Bearer </code></b>
+                <input type="text"
+                       name="Authorization"
+                       data-prefix="Bearer "
+                       data-endpoint="POSTapi-admin-permissions"
+                       data-component="header"></label>
+        </p>
+                        <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>name</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text"
+               name="name"
+               data-endpoint="POSTapi-admin-permissions"
+               value="fugiat"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+                <p>
+            <b><code>guard_name</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="guard_name"
+               data-endpoint="POSTapi-admin-permissions"
+               value="est"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+                <p>
+            <b><code>roles</code></b>&nbsp;&nbsp;
+<small>string[]</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="roles[0]"
+               data-endpoint="POSTapi-admin-permissions"
+               data-component="body" hidden>
+        <input type="text"
+               name="roles[1]"
+               data-endpoint="POSTapi-admin-permissions"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+        </form>
+
+                    <h2 id="permissions-GETapi-admin-permissions--id-">Display the specified permission.</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-GETapi-admin-permissions--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost/api/admin/permissions/1" \
+    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/admin/permissions/1"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'http://localhost/api/admin/permissions/1',
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-admin-permissions--id-">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;data&quot;: {
+        &quot;id&quot;: 1,
+        &quot;name&quot;: &quot;est&quot;,
+        &quot;guard_name&quot;: &quot;web&quot;,
+        &quot;roles&quot;: [
+            {
+                &quot;id&quot;: 1,
+                &quot;name&quot;: &quot;culpa&quot;,
+                &quot;guard_name&quot;: &quot;web&quot;
+            }
+        ]
+    }
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-admin-permissions--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-admin-permissions--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-admin-permissions--id-"></code></pre>
+</span>
+<span id="execution-error-GETapi-admin-permissions--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-admin-permissions--id-"></code></pre>
+</span>
+<form id="form-GETapi-admin-permissions--id-" data-method="GET"
+      data-path="api/admin/permissions/{id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-admin-permissions--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/admin/permissions/{id}</code></b>
+        </p>
+                <p>
+            <label id="auth-GETapi-admin-permissions--id-" hidden>Authorization header:
+                <b><code>Bearer </code></b>
+                <input type="text"
+                       name="Authorization"
+                       data-prefix="Bearer "
+                       data-endpoint="GETapi-admin-permissions--id-"
+                       data-component="header"></label>
+        </p>
+                <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number"
+               name="id"
+               data-endpoint="GETapi-admin-permissions--id-"
+               value="1"
+               data-component="url" hidden>
+    <br>
+<p>The ID of the permission.</p>
+            </p>
+                    </form>
+
+                    <h2 id="permissions-PUTapi-admin-permissions--id-">Update the specified permission in storage.</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-PUTapi-admin-permissions--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request PUT \
+    "http://localhost/api/admin/permissions/1" \
+    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"name\": \"perspiciatis\",
+    \"guard_name\": \"et\",
+    \"roles\": [
+        \"consequuntur\"
+    ]
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/admin/permissions/1"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "name": "perspiciatis",
+    "guard_name": "et",
+    "roles": [
+        "consequuntur"
+    ]
+};
+
+fetch(url, {
+    method: "PUT",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;put(
+    'http://localhost/api/admin/permissions/1',
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+        'json' =&gt; [
+            'name' =&gt; 'perspiciatis',
+            'guard_name' =&gt; 'et',
+            'roles' =&gt; [
+                'consequuntur',
+            ],
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+</span>
+
+<span id="example-responses-PUTapi-admin-permissions--id-">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;data&quot;: {
+        &quot;id&quot;: 1,
+        &quot;name&quot;: &quot;est&quot;,
+        &quot;guard_name&quot;: &quot;web&quot;,
+        &quot;roles&quot;: [
+            {
+                &quot;id&quot;: 1,
+                &quot;name&quot;: &quot;culpa&quot;,
+                &quot;guard_name&quot;: &quot;web&quot;
+            }
+        ]
+    }
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-PUTapi-admin-permissions--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-PUTapi-admin-permissions--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-PUTapi-admin-permissions--id-"></code></pre>
+</span>
+<span id="execution-error-PUTapi-admin-permissions--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-PUTapi-admin-permissions--id-"></code></pre>
+</span>
+<form id="form-PUTapi-admin-permissions--id-" data-method="PUT"
+      data-path="api/admin/permissions/{id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('PUTapi-admin-permissions--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+            </h3>
+            <p>
+            <small class="badge badge-darkblue">PUT</small>
+            <b><code>api/admin/permissions/{id}</code></b>
+        </p>
+            <p>
+            <small class="badge badge-purple">PATCH</small>
+            <b><code>api/admin/permissions/{id}</code></b>
+        </p>
+                <p>
+            <label id="auth-PUTapi-admin-permissions--id-" hidden>Authorization header:
+                <b><code>Bearer </code></b>
+                <input type="text"
+                       name="Authorization"
+                       data-prefix="Bearer "
+                       data-endpoint="PUTapi-admin-permissions--id-"
+                       data-component="header"></label>
+        </p>
+                <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number"
+               name="id"
+               data-endpoint="PUTapi-admin-permissions--id-"
+               value="1"
+               data-component="url" hidden>
+    <br>
+<p>The ID of the permission.</p>
+            </p>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>name</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="name"
+               data-endpoint="PUTapi-admin-permissions--id-"
+               value="perspiciatis"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+                <p>
+            <b><code>guard_name</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="guard_name"
+               data-endpoint="PUTapi-admin-permissions--id-"
+               value="et"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+                <p>
+            <b><code>roles</code></b>&nbsp;&nbsp;
+<small>string[]</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="roles[0]"
+               data-endpoint="PUTapi-admin-permissions--id-"
+               data-component="body" hidden>
+        <input type="text"
+               name="roles[1]"
+               data-endpoint="PUTapi-admin-permissions--id-"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+        </form>
+
+                    <h2 id="permissions-DELETEapi-admin-permissions--id-">Remove the specified permission from storage.</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-DELETEapi-admin-permissions--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request DELETE \
+    "http://localhost/api/admin/permissions/1" \
+    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/admin/permissions/1"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;delete(
+    'http://localhost/api/admin/permissions/1',
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+</span>
+
+<span id="example-responses-DELETEapi-admin-permissions--id-">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;success&quot;: &quot;permission deleted&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-DELETEapi-admin-permissions--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-DELETEapi-admin-permissions--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-DELETEapi-admin-permissions--id-"></code></pre>
+</span>
+<span id="execution-error-DELETEapi-admin-permissions--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-DELETEapi-admin-permissions--id-"></code></pre>
+</span>
+<form id="form-DELETEapi-admin-permissions--id-" data-method="DELETE"
+      data-path="api/admin/permissions/{id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('DELETEapi-admin-permissions--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+            </h3>
+            <p>
+            <small class="badge badge-red">DELETE</small>
+            <b><code>api/admin/permissions/{id}</code></b>
+        </p>
+                <p>
+            <label id="auth-DELETEapi-admin-permissions--id-" hidden>Authorization header:
+                <b><code>Bearer </code></b>
+                <input type="text"
+                       name="Authorization"
+                       data-prefix="Bearer "
+                       data-endpoint="DELETEapi-admin-permissions--id-"
+                       data-component="header"></label>
+        </p>
+                <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number"
+               name="id"
+               data-endpoint="DELETEapi-admin-permissions--id-"
+               value="1"
+               data-component="url" hidden>
+    <br>
+<p>The ID of the permission.</p>
+            </p>
+                    </form>
+
+                <h1 id="roles">Roles</h1>
+
+    
+
+                                <h2 id="roles-GETapi-admin-roles">Display a listing of the roles.</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-GETapi-admin-roles">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost/api/admin/roles" \
+    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/admin/roles"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'http://localhost/api/admin/roles',
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-admin-roles">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;data&quot;: [
+        {
+            &quot;id&quot;: 1,
+            &quot;name&quot;: &quot;culpa&quot;,
+            &quot;guard_name&quot;: &quot;web&quot;,
+            &quot;permissions&quot;: [
+                {
+                    &quot;id&quot;: 1,
+                    &quot;name&quot;: &quot;est&quot;,
+                    &quot;guard_name&quot;: &quot;web&quot;
+                },
+                {
+                    &quot;id&quot;: 2,
+                    &quot;name&quot;: &quot;vitae&quot;,
+                    &quot;guard_name&quot;: &quot;web&quot;
+                }
+            ]
+        },
+        {
+            &quot;id&quot;: 2,
+            &quot;name&quot;: &quot;sit&quot;,
+            &quot;guard_name&quot;: &quot;web&quot;,
+            &quot;permissions&quot;: [
+                {
+                    &quot;id&quot;: 6,
+                    &quot;name&quot;: &quot;ut&quot;,
+                    &quot;guard_name&quot;: &quot;web&quot;
+                },
+                {
+                    &quot;id&quot;: 7,
+                    &quot;name&quot;: &quot;earum&quot;,
+                    &quot;guard_name&quot;: &quot;web&quot;
+                }
+            ]
+        }
+    ]
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-admin-roles" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-admin-roles"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-admin-roles"></code></pre>
+</span>
+<span id="execution-error-GETapi-admin-roles" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-admin-roles"></code></pre>
+</span>
+<form id="form-GETapi-admin-roles" data-method="GET"
+      data-path="api/admin/roles"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-admin-roles', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/admin/roles</code></b>
+        </p>
+                <p>
+            <label id="auth-GETapi-admin-roles" hidden>Authorization header:
+                <b><code>Bearer </code></b>
+                <input type="text"
+                       name="Authorization"
+                       data-prefix="Bearer "
+                       data-endpoint="GETapi-admin-roles"
+                       data-component="header"></label>
+        </p>
+                </form>
+
+                    <h2 id="roles-POSTapi-admin-roles">Store a newly created role in storage.</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-POSTapi-admin-roles">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://localhost/api/admin/roles" \
+    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"name\": \"qui\",
+    \"guard_name\": \"nulla\",
+    \"permissions\": [
+        \"quia\"
+    ]
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/admin/roles"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "name": "qui",
+    "guard_name": "nulla",
+    "permissions": [
+        "quia"
+    ]
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://localhost/api/admin/roles',
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+        'json' =&gt; [
+            'name' =&gt; 'qui',
+            'guard_name' =&gt; 'nulla',
+            'permissions' =&gt; [
+                'quia',
+            ],
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-admin-roles">
+            <blockquote>
+            <p>Example response (201):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;data&quot;: {
+        &quot;id&quot;: 1,
+        &quot;name&quot;: &quot;culpa&quot;,
+        &quot;guard_name&quot;: &quot;web&quot;,
+        &quot;permissions&quot;: [
+            {
+                &quot;id&quot;: 1,
+                &quot;name&quot;: &quot;est&quot;,
+                &quot;guard_name&quot;: &quot;web&quot;
+            },
+            {
+                &quot;id&quot;: 2,
+                &quot;name&quot;: &quot;vitae&quot;,
+                &quot;guard_name&quot;: &quot;web&quot;
+            }
+        ]
+    }
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-POSTapi-admin-roles" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-admin-roles"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-admin-roles"></code></pre>
+</span>
+<span id="execution-error-POSTapi-admin-roles" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-admin-roles"></code></pre>
+</span>
+<form id="form-POSTapi-admin-roles" data-method="POST"
+      data-path="api/admin/roles"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-admin-roles', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/admin/roles</code></b>
+        </p>
+                <p>
+            <label id="auth-POSTapi-admin-roles" hidden>Authorization header:
+                <b><code>Bearer </code></b>
+                <input type="text"
+                       name="Authorization"
+                       data-prefix="Bearer "
+                       data-endpoint="POSTapi-admin-roles"
+                       data-component="header"></label>
+        </p>
+                        <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>name</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text"
+               name="name"
+               data-endpoint="POSTapi-admin-roles"
+               value="qui"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+                <p>
+            <b><code>guard_name</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="guard_name"
+               data-endpoint="POSTapi-admin-roles"
+               value="nulla"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+                <p>
+            <b><code>permissions</code></b>&nbsp;&nbsp;
+<small>string[]</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="permissions[0]"
+               data-endpoint="POSTapi-admin-roles"
+               data-component="body" hidden>
+        <input type="text"
+               name="permissions[1]"
+               data-endpoint="POSTapi-admin-roles"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+        </form>
+
+                    <h2 id="roles-GETapi-admin-roles--id-">Display the specified role.</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-GETapi-admin-roles--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost/api/admin/roles/1" \
+    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/admin/roles/1"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'http://localhost/api/admin/roles/1',
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-admin-roles--id-">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;data&quot;: {
+        &quot;id&quot;: 1,
+        &quot;name&quot;: &quot;culpa&quot;,
+        &quot;guard_name&quot;: &quot;web&quot;,
+        &quot;permissions&quot;: [
+            {
+                &quot;id&quot;: 1,
+                &quot;name&quot;: &quot;est&quot;,
+                &quot;guard_name&quot;: &quot;web&quot;
+            },
+            {
+                &quot;id&quot;: 2,
+                &quot;name&quot;: &quot;vitae&quot;,
+                &quot;guard_name&quot;: &quot;web&quot;
+            }
+        ]
+    }
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-admin-roles--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-admin-roles--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-admin-roles--id-"></code></pre>
+</span>
+<span id="execution-error-GETapi-admin-roles--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-admin-roles--id-"></code></pre>
+</span>
+<form id="form-GETapi-admin-roles--id-" data-method="GET"
+      data-path="api/admin/roles/{id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-admin-roles--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/admin/roles/{id}</code></b>
+        </p>
+                <p>
+            <label id="auth-GETapi-admin-roles--id-" hidden>Authorization header:
+                <b><code>Bearer </code></b>
+                <input type="text"
+                       name="Authorization"
+                       data-prefix="Bearer "
+                       data-endpoint="GETapi-admin-roles--id-"
+                       data-component="header"></label>
+        </p>
+                <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number"
+               name="id"
+               data-endpoint="GETapi-admin-roles--id-"
+               value="1"
+               data-component="url" hidden>
+    <br>
+<p>The ID of the role.</p>
+            </p>
+                    </form>
+
+                    <h2 id="roles-PUTapi-admin-roles--id-">Update the specified role in storage.</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-PUTapi-admin-roles--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request PUT \
+    "http://localhost/api/admin/roles/1" \
+    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"name\": \"eius\",
+    \"guard_name\": \"laudantium\",
+    \"permissions\": [
+        \"dolorum\"
+    ]
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/admin/roles/1"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "name": "eius",
+    "guard_name": "laudantium",
+    "permissions": [
+        "dolorum"
+    ]
+};
+
+fetch(url, {
+    method: "PUT",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;put(
+    'http://localhost/api/admin/roles/1',
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+        'json' =&gt; [
+            'name' =&gt; 'eius',
+            'guard_name' =&gt; 'laudantium',
+            'permissions' =&gt; [
+                'dolorum',
+            ],
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+</span>
+
+<span id="example-responses-PUTapi-admin-roles--id-">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;data&quot;: {
+        &quot;id&quot;: 1,
+        &quot;name&quot;: &quot;culpa&quot;,
+        &quot;guard_name&quot;: &quot;web&quot;,
+        &quot;permissions&quot;: [
+            {
+                &quot;id&quot;: 1,
+                &quot;name&quot;: &quot;est&quot;,
+                &quot;guard_name&quot;: &quot;web&quot;
+            },
+            {
+                &quot;id&quot;: 2,
+                &quot;name&quot;: &quot;vitae&quot;,
+                &quot;guard_name&quot;: &quot;web&quot;
+            }
+        ]
+    }
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-PUTapi-admin-roles--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-PUTapi-admin-roles--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-PUTapi-admin-roles--id-"></code></pre>
+</span>
+<span id="execution-error-PUTapi-admin-roles--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-PUTapi-admin-roles--id-"></code></pre>
+</span>
+<form id="form-PUTapi-admin-roles--id-" data-method="PUT"
+      data-path="api/admin/roles/{id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('PUTapi-admin-roles--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+            </h3>
+            <p>
+            <small class="badge badge-darkblue">PUT</small>
+            <b><code>api/admin/roles/{id}</code></b>
+        </p>
+            <p>
+            <small class="badge badge-purple">PATCH</small>
+            <b><code>api/admin/roles/{id}</code></b>
+        </p>
+                <p>
+            <label id="auth-PUTapi-admin-roles--id-" hidden>Authorization header:
+                <b><code>Bearer </code></b>
+                <input type="text"
+                       name="Authorization"
+                       data-prefix="Bearer "
+                       data-endpoint="PUTapi-admin-roles--id-"
+                       data-component="header"></label>
+        </p>
+                <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number"
+               name="id"
+               data-endpoint="PUTapi-admin-roles--id-"
+               value="1"
+               data-component="url" hidden>
+    <br>
+<p>The ID of the role.</p>
+            </p>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>name</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="name"
+               data-endpoint="PUTapi-admin-roles--id-"
+               value="eius"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+                <p>
+            <b><code>guard_name</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="guard_name"
+               data-endpoint="PUTapi-admin-roles--id-"
+               value="laudantium"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+                <p>
+            <b><code>permissions</code></b>&nbsp;&nbsp;
+<small>string[]</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="permissions[0]"
+               data-endpoint="PUTapi-admin-roles--id-"
+               data-component="body" hidden>
+        <input type="text"
+               name="permissions[1]"
+               data-endpoint="PUTapi-admin-roles--id-"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+        </form>
+
+                    <h2 id="roles-DELETEapi-admin-roles--id-">Remove the specified role from storage.</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-DELETEapi-admin-roles--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request DELETE \
+    "http://localhost/api/admin/roles/1" \
+    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/admin/roles/1"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;delete(
+    'http://localhost/api/admin/roles/1',
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+</span>
+
+<span id="example-responses-DELETEapi-admin-roles--id-">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;success&quot;: &quot;role deleted&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-DELETEapi-admin-roles--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-DELETEapi-admin-roles--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-DELETEapi-admin-roles--id-"></code></pre>
+</span>
+<span id="execution-error-DELETEapi-admin-roles--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-DELETEapi-admin-roles--id-"></code></pre>
+</span>
+<form id="form-DELETEapi-admin-roles--id-" data-method="DELETE"
+      data-path="api/admin/roles/{id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('DELETEapi-admin-roles--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+            </h3>
+            <p>
+            <small class="badge badge-red">DELETE</small>
+            <b><code>api/admin/roles/{id}</code></b>
+        </p>
+                <p>
+            <label id="auth-DELETEapi-admin-roles--id-" hidden>Authorization header:
+                <b><code>Bearer </code></b>
+                <input type="text"
+                       name="Authorization"
+                       data-prefix="Bearer "
+                       data-endpoint="DELETEapi-admin-roles--id-"
+                       data-component="header"></label>
+        </p>
+                <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number"
+               name="id"
+               data-endpoint="DELETEapi-admin-roles--id-"
+               value="1"
+               data-component="url" hidden>
+    <br>
+<p>The ID of the role.</p>
+            </p>
+                    </form>
+
+                <h1 id="users">Users</h1>
+
+    
+
+                                <h2 id="users-GETapi-admin-users">Display a listing of the users.</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-GETapi-admin-users">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost/api/admin/users" \
+    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/admin/users"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'http://localhost/api/admin/users',
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-admin-users">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;data&quot;: [
+        {
+            &quot;id&quot;: 1,
+            &quot;name&quot;: &quot;est&quot;,
+            &quot;guard_name&quot;: &quot;web&quot;,
+            &quot;roles&quot;: [
+                {
+                    &quot;id&quot;: 1,
+                    &quot;name&quot;: &quot;culpa&quot;,
+                    &quot;guard_name&quot;: &quot;web&quot;
+                }
+            ]
+        },
+        {
+            &quot;id&quot;: 2,
+            &quot;name&quot;: &quot;vitae&quot;,
+            &quot;guard_name&quot;: &quot;web&quot;,
+            &quot;roles&quot;: [
+                {
+                    &quot;id&quot;: 1,
+                    &quot;name&quot;: &quot;culpa&quot;,
+                    &quot;guard_name&quot;: &quot;web&quot;
+                }
+            ]
+        }
+    ]
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-admin-users" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-admin-users"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-admin-users"></code></pre>
+</span>
+<span id="execution-error-GETapi-admin-users" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-admin-users"></code></pre>
+</span>
+<form id="form-GETapi-admin-users" data-method="GET"
+      data-path="api/admin/users"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-admin-users', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/admin/users</code></b>
+        </p>
+                <p>
+            <label id="auth-GETapi-admin-users" hidden>Authorization header:
+                <b><code>Bearer </code></b>
+                <input type="text"
+                       name="Authorization"
+                       data-prefix="Bearer "
+                       data-endpoint="GETapi-admin-users"
+                       data-component="header"></label>
+        </p>
+                </form>
+
+                    <h2 id="users-POSTapi-admin-users">Store a newly created user in storage.</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-POSTapi-admin-users">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://localhost/api/admin/users" \
+    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"name\": \"quisquam\",
+    \"username\": \"voluptatem\",
+    \"password\": \"quod\",
+    \"email\": \"quae\",
+    \"roles\": [
+        \"voluptate\"
+    ],
+    \"permissions\": [
+        \"quo\"
+    ]
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/admin/users"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "name": "quisquam",
+    "username": "voluptatem",
+    "password": "quod",
+    "email": "quae",
+    "roles": [
+        "voluptate"
+    ],
+    "permissions": [
+        "quo"
+    ]
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://localhost/api/admin/users',
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+        'json' =&gt; [
+            'name' =&gt; 'quisquam',
+            'username' =&gt; 'voluptatem',
+            'password' =&gt; 'quod',
+            'email' =&gt; 'quae',
+            'roles' =&gt; [
+                'voluptate',
+            ],
+            'permissions' =&gt; [
+                'quo',
+            ],
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-admin-users">
+            <blockquote>
+            <p>Example response (201):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;data&quot;: {
+        &quot;id&quot;: 1,
+        &quot;name&quot;: &quot;est&quot;,
+        &quot;guard_name&quot;: &quot;web&quot;,
+        &quot;roles&quot;: [
+            {
+                &quot;id&quot;: 1,
+                &quot;name&quot;: &quot;culpa&quot;,
+                &quot;guard_name&quot;: &quot;web&quot;
+            }
+        ]
+    }
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-POSTapi-admin-users" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-admin-users"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-admin-users"></code></pre>
+</span>
+<span id="execution-error-POSTapi-admin-users" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-admin-users"></code></pre>
+</span>
+<form id="form-POSTapi-admin-users" data-method="POST"
+      data-path="api/admin/users"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-admin-users', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/admin/users</code></b>
+        </p>
+                <p>
+            <label id="auth-POSTapi-admin-users" hidden>Authorization header:
+                <b><code>Bearer </code></b>
+                <input type="text"
+                       name="Authorization"
+                       data-prefix="Bearer "
+                       data-endpoint="POSTapi-admin-users"
+                       data-component="header"></label>
+        </p>
+                        <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>name</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text"
+               name="name"
+               data-endpoint="POSTapi-admin-users"
+               value="quisquam"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+                <p>
+            <b><code>username</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text"
+               name="username"
+               data-endpoint="POSTapi-admin-users"
+               value="voluptatem"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+                <p>
+            <b><code>password</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text"
+               name="password"
+               data-endpoint="POSTapi-admin-users"
+               value="quod"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+                <p>
+            <b><code>email</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text"
+               name="email"
+               data-endpoint="POSTapi-admin-users"
+               value="quae"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+                <p>
+            <b><code>roles</code></b>&nbsp;&nbsp;
+<small>string[]</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="roles[0]"
+               data-endpoint="POSTapi-admin-users"
+               data-component="body" hidden>
+        <input type="text"
+               name="roles[1]"
+               data-endpoint="POSTapi-admin-users"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+                <p>
+            <b><code>permissions</code></b>&nbsp;&nbsp;
+<small>string[]</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="permissions[0]"
+               data-endpoint="POSTapi-admin-users"
+               data-component="body" hidden>
+        <input type="text"
+               name="permissions[1]"
+               data-endpoint="POSTapi-admin-users"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+        </form>
+
+                    <h2 id="users-GETapi-admin-users--id-">Display the specified user.</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-GETapi-admin-users--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost/api/admin/users/1" \
+    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/admin/users/1"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'http://localhost/api/admin/users/1',
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-admin-users--id-">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;data&quot;: {
+        &quot;id&quot;: 1,
+        &quot;name&quot;: &quot;est&quot;,
+        &quot;guard_name&quot;: &quot;web&quot;,
+        &quot;roles&quot;: [
+            {
+                &quot;id&quot;: 1,
+                &quot;name&quot;: &quot;culpa&quot;,
+                &quot;guard_name&quot;: &quot;web&quot;
+            }
+        ]
+    }
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-admin-users--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-admin-users--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-admin-users--id-"></code></pre>
+</span>
+<span id="execution-error-GETapi-admin-users--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-admin-users--id-"></code></pre>
+</span>
+<form id="form-GETapi-admin-users--id-" data-method="GET"
+      data-path="api/admin/users/{id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-admin-users--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/admin/users/{id}</code></b>
+        </p>
+                <p>
+            <label id="auth-GETapi-admin-users--id-" hidden>Authorization header:
+                <b><code>Bearer </code></b>
+                <input type="text"
+                       name="Authorization"
+                       data-prefix="Bearer "
+                       data-endpoint="GETapi-admin-users--id-"
+                       data-component="header"></label>
+        </p>
+                <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number"
+               name="id"
+               data-endpoint="GETapi-admin-users--id-"
+               value="1"
+               data-component="url" hidden>
+    <br>
+<p>The ID of the user.</p>
+            </p>
+                    </form>
+
+                    <h2 id="users-PUTapi-admin-users--id-">Update the specified user in storage.</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-PUTapi-admin-users--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request PUT \
+    "http://localhost/api/admin/users/1" \
+    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"name\": \"quia\",
+    \"username\": \"minus\",
+    \"email\": \"inventore\",
+    \"roles\": [
+        \"quibusdam\"
+    ],
+    \"permissions\": [
+        \"quis\"
+    ]
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/admin/users/1"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "name": "quia",
+    "username": "minus",
+    "email": "inventore",
+    "roles": [
+        "quibusdam"
+    ],
+    "permissions": [
+        "quis"
+    ]
+};
+
+fetch(url, {
+    method: "PUT",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;put(
+    'http://localhost/api/admin/users/1',
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+        'json' =&gt; [
+            'name' =&gt; 'quia',
+            'username' =&gt; 'minus',
+            'email' =&gt; 'inventore',
+            'roles' =&gt; [
+                'quibusdam',
+            ],
+            'permissions' =&gt; [
+                'quis',
+            ],
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+</span>
+
+<span id="example-responses-PUTapi-admin-users--id-">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;data&quot;: {
+        &quot;id&quot;: 1,
+        &quot;name&quot;: &quot;est&quot;,
+        &quot;guard_name&quot;: &quot;web&quot;,
+        &quot;roles&quot;: [
+            {
+                &quot;id&quot;: 1,
+                &quot;name&quot;: &quot;culpa&quot;,
+                &quot;guard_name&quot;: &quot;web&quot;
+            }
+        ]
+    }
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-PUTapi-admin-users--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-PUTapi-admin-users--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-PUTapi-admin-users--id-"></code></pre>
+</span>
+<span id="execution-error-PUTapi-admin-users--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-PUTapi-admin-users--id-"></code></pre>
+</span>
+<form id="form-PUTapi-admin-users--id-" data-method="PUT"
+      data-path="api/admin/users/{id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('PUTapi-admin-users--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+            </h3>
+            <p>
+            <small class="badge badge-darkblue">PUT</small>
+            <b><code>api/admin/users/{id}</code></b>
+        </p>
+            <p>
+            <small class="badge badge-purple">PATCH</small>
+            <b><code>api/admin/users/{id}</code></b>
+        </p>
+                <p>
+            <label id="auth-PUTapi-admin-users--id-" hidden>Authorization header:
+                <b><code>Bearer </code></b>
+                <input type="text"
+                       name="Authorization"
+                       data-prefix="Bearer "
+                       data-endpoint="PUTapi-admin-users--id-"
+                       data-component="header"></label>
+        </p>
+                <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number"
+               name="id"
+               data-endpoint="PUTapi-admin-users--id-"
+               value="1"
+               data-component="url" hidden>
+    <br>
+<p>The ID of the user.</p>
+            </p>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>name</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="name"
+               data-endpoint="PUTapi-admin-users--id-"
+               value="quia"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+                <p>
+            <b><code>username</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text"
+               name="username"
+               data-endpoint="PUTapi-admin-users--id-"
+               value="minus"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+                <p>
+            <b><code>password</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="password"
+               data-endpoint="PUTapi-admin-users--id-"
+               value=""
+               data-component="body" hidden>
+    <br>
+
+        </p>
+                <p>
+            <b><code>email</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text"
+               name="email"
+               data-endpoint="PUTapi-admin-users--id-"
+               value="inventore"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+                <p>
+            <b><code>roles</code></b>&nbsp;&nbsp;
+<small>string[]</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="roles[0]"
+               data-endpoint="PUTapi-admin-users--id-"
+               data-component="body" hidden>
+        <input type="text"
+               name="roles[1]"
+               data-endpoint="PUTapi-admin-users--id-"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+                <p>
+            <b><code>permissions</code></b>&nbsp;&nbsp;
+<small>string[]</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="permissions[0]"
+               data-endpoint="PUTapi-admin-users--id-"
+               data-component="body" hidden>
+        <input type="text"
+               name="permissions[1]"
+               data-endpoint="PUTapi-admin-users--id-"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+        </form>
+
+                    <h2 id="users-DELETEapi-admin-users--id-">Remove the specified user from storage.</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-DELETEapi-admin-users--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request DELETE \
+    "http://localhost/api/admin/users/1" \
+    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/admin/users/1"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;delete(
+    'http://localhost/api/admin/users/1',
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+</span>
+
+<span id="example-responses-DELETEapi-admin-users--id-">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;success&quot;: &quot;user deleted&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-DELETEapi-admin-users--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-DELETEapi-admin-users--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-DELETEapi-admin-users--id-"></code></pre>
+</span>
+<span id="execution-error-DELETEapi-admin-users--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-DELETEapi-admin-users--id-"></code></pre>
+</span>
+<form id="form-DELETEapi-admin-users--id-" data-method="DELETE"
+      data-path="api/admin/users/{id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('DELETEapi-admin-users--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+            </h3>
+            <p>
+            <small class="badge badge-red">DELETE</small>
+            <b><code>api/admin/users/{id}</code></b>
+        </p>
+                <p>
+            <label id="auth-DELETEapi-admin-users--id-" hidden>Authorization header:
+                <b><code>Bearer </code></b>
+                <input type="text"
+                       name="Authorization"
+                       data-prefix="Bearer "
+                       data-endpoint="DELETEapi-admin-users--id-"
+                       data-component="header"></label>
+        </p>
+                <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number"
+               name="id"
+               data-endpoint="DELETEapi-admin-users--id-"
+               value="1"
+               data-component="url" hidden>
+    <br>
+<p>The ID of the user.</p>
+            </p>
+                    </form>
+
+            
+
+        
+    </div>
+    <div class="dark-box">
+                    <div class="lang-selector">
+                                                        <button type="button" class="lang-button" data-language-name="bash">bash</button>
+                                                        <button type="button" class="lang-button" data-language-name="javascript">javascript</button>
+                                                        <button type="button" class="lang-button" data-language-name="php">php</button>
+                            </div>
+            </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,1248 @@
+openapi: 3.0.3
+info:
+  title: api-kit
+  description: ''
+  version: 1.0.0
+servers:
+  -
+    url: 'http://localhost'
+paths:
+  /api/login:
+    post:
+      summary: Login
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  token: abc123
+                properties:
+                  token:
+                    type: string
+                    example: abc123
+        403:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  error: 'invalid credentials'
+                properties:
+                  error:
+                    type: string
+                    example: 'invalid credentials'
+      tags:
+        - Authentication
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                  description: ''
+                  example: enim
+                password:
+                  type: string
+                  description: ''
+                  example: omnis
+              required:
+                - username
+                - password
+  /api/logout:
+    post:
+      summary: Logout
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  success: 'logged out'
+                properties:
+                  success:
+                    type: string
+                    example: 'logged out'
+      tags:
+        - Authentication
+  /api/admin/permissions:
+    get:
+      summary: 'Display a listing of the permissions.'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    -
+                      id: 1
+                      name: est
+                      guard_name: web
+                      roles:
+                        -
+                          id: 1
+                          name: culpa
+                          guard_name: web
+                    -
+                      id: 2
+                      name: vitae
+                      guard_name: web
+                      roles:
+                        -
+                          id: 1
+                          name: culpa
+                          guard_name: web
+                properties:
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: 1
+                        name: est
+                        guard_name: web
+                        roles:
+                          -
+                            id: 1
+                            name: culpa
+                            guard_name: web
+                      -
+                        id: 2
+                        name: vitae
+                        guard_name: web
+                        roles:
+                          -
+                            id: 1
+                            name: culpa
+                            guard_name: web
+                    items:
+                      type: object
+      tags:
+        - Permissions
+    post:
+      summary: 'Store a newly created permission in storage.'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        201:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    id: 1
+                    name: est
+                    guard_name: web
+                    roles:
+                      -
+                        id: 1
+                        name: culpa
+                        guard_name: web
+                properties:
+                  data:
+                    type: object
+                    example:
+                      id: 1
+                      name: est
+                      guard_name: web
+                      roles:
+                        -
+                          id: 1
+                          name: culpa
+                          guard_name: web
+      tags:
+        - Permissions
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: ''
+                  example: fugiat
+                guard_name:
+                  type: string
+                  description: ''
+                  example: est
+                roles:
+                  type: array
+                  description: ''
+                  example:
+                    - et
+                  items:
+                    type: string
+              required:
+                - name
+  '/api/admin/permissions/{id}':
+    get:
+      summary: 'Display the specified permission.'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    id: 1
+                    name: est
+                    guard_name: web
+                    roles:
+                      -
+                        id: 1
+                        name: culpa
+                        guard_name: web
+                properties:
+                  data:
+                    type: object
+                    example:
+                      id: 1
+                      name: est
+                      guard_name: web
+                      roles:
+                        -
+                          id: 1
+                          name: culpa
+                          guard_name: web
+      tags:
+        - Permissions
+    put:
+      summary: 'Update the specified permission in storage.'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    id: 1
+                    name: est
+                    guard_name: web
+                    roles:
+                      -
+                        id: 1
+                        name: culpa
+                        guard_name: web
+                properties:
+                  data:
+                    type: object
+                    example:
+                      id: 1
+                      name: est
+                      guard_name: web
+                      roles:
+                        -
+                          id: 1
+                          name: culpa
+                          guard_name: web
+      tags:
+        - Permissions
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: ''
+                  example: perspiciatis
+                guard_name:
+                  type: string
+                  description: ''
+                  example: et
+                roles:
+                  type: array
+                  description: ''
+                  example:
+                    - consequuntur
+                  items:
+                    type: string
+    delete:
+      summary: 'Remove the specified permission from storage.'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  success: 'permission deleted'
+                properties:
+                  success:
+                    type: string
+                    example: 'permission deleted'
+      tags:
+        - Permissions
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the permission.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  /api/admin/roles:
+    get:
+      summary: 'Display a listing of the roles.'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    -
+                      id: 1
+                      name: culpa
+                      guard_name: web
+                      permissions:
+                        -
+                          id: 1
+                          name: est
+                          guard_name: web
+                        -
+                          id: 2
+                          name: vitae
+                          guard_name: web
+                    -
+                      id: 2
+                      name: sit
+                      guard_name: web
+                      permissions:
+                        -
+                          id: 6
+                          name: ut
+                          guard_name: web
+                        -
+                          id: 7
+                          name: earum
+                          guard_name: web
+                properties:
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: 1
+                        name: culpa
+                        guard_name: web
+                        permissions:
+                          -
+                            id: 1
+                            name: est
+                            guard_name: web
+                          -
+                            id: 2
+                            name: vitae
+                            guard_name: web
+                      -
+                        id: 2
+                        name: sit
+                        guard_name: web
+                        permissions:
+                          -
+                            id: 6
+                            name: ut
+                            guard_name: web
+                          -
+                            id: 7
+                            name: earum
+                            guard_name: web
+                    items:
+                      type: object
+      tags:
+        - Roles
+    post:
+      summary: 'Store a newly created role in storage.'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        201:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    id: 1
+                    name: culpa
+                    guard_name: web
+                    permissions:
+                      -
+                        id: 1
+                        name: est
+                        guard_name: web
+                      -
+                        id: 2
+                        name: vitae
+                        guard_name: web
+                properties:
+                  data:
+                    type: object
+                    example:
+                      id: 1
+                      name: culpa
+                      guard_name: web
+                      permissions:
+                        -
+                          id: 1
+                          name: est
+                          guard_name: web
+                        -
+                          id: 2
+                          name: vitae
+                          guard_name: web
+      tags:
+        - Roles
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: ''
+                  example: qui
+                guard_name:
+                  type: string
+                  description: ''
+                  example: nulla
+                permissions:
+                  type: array
+                  description: ''
+                  example:
+                    - quia
+                  items:
+                    type: string
+              required:
+                - name
+  '/api/admin/roles/{id}':
+    get:
+      summary: 'Display the specified role.'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    id: 1
+                    name: culpa
+                    guard_name: web
+                    permissions:
+                      -
+                        id: 1
+                        name: est
+                        guard_name: web
+                      -
+                        id: 2
+                        name: vitae
+                        guard_name: web
+                properties:
+                  data:
+                    type: object
+                    example:
+                      id: 1
+                      name: culpa
+                      guard_name: web
+                      permissions:
+                        -
+                          id: 1
+                          name: est
+                          guard_name: web
+                        -
+                          id: 2
+                          name: vitae
+                          guard_name: web
+      tags:
+        - Roles
+    put:
+      summary: 'Update the specified role in storage.'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    id: 1
+                    name: culpa
+                    guard_name: web
+                    permissions:
+                      -
+                        id: 1
+                        name: est
+                        guard_name: web
+                      -
+                        id: 2
+                        name: vitae
+                        guard_name: web
+                properties:
+                  data:
+                    type: object
+                    example:
+                      id: 1
+                      name: culpa
+                      guard_name: web
+                      permissions:
+                        -
+                          id: 1
+                          name: est
+                          guard_name: web
+                        -
+                          id: 2
+                          name: vitae
+                          guard_name: web
+      tags:
+        - Roles
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: ''
+                  example: eius
+                guard_name:
+                  type: string
+                  description: ''
+                  example: laudantium
+                permissions:
+                  type: array
+                  description: ''
+                  example:
+                    - dolorum
+                  items:
+                    type: string
+    delete:
+      summary: 'Remove the specified role from storage.'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  success: 'role deleted'
+                properties:
+                  success:
+                    type: string
+                    example: 'role deleted'
+      tags:
+        - Roles
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the role.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  /api/admin/users:
+    get:
+      summary: 'Display a listing of the users.'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    -
+                      id: 1
+                      name: est
+                      guard_name: web
+                      roles:
+                        -
+                          id: 1
+                          name: culpa
+                          guard_name: web
+                    -
+                      id: 2
+                      name: vitae
+                      guard_name: web
+                      roles:
+                        -
+                          id: 1
+                          name: culpa
+                          guard_name: web
+                properties:
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: 1
+                        name: est
+                        guard_name: web
+                        roles:
+                          -
+                            id: 1
+                            name: culpa
+                            guard_name: web
+                      -
+                        id: 2
+                        name: vitae
+                        guard_name: web
+                        roles:
+                          -
+                            id: 1
+                            name: culpa
+                            guard_name: web
+                    items:
+                      type: object
+      tags:
+        - Users
+    post:
+      summary: 'Store a newly created user in storage.'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        201:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    id: 1
+                    name: est
+                    guard_name: web
+                    roles:
+                      -
+                        id: 1
+                        name: culpa
+                        guard_name: web
+                properties:
+                  data:
+                    type: object
+                    example:
+                      id: 1
+                      name: est
+                      guard_name: web
+                      roles:
+                        -
+                          id: 1
+                          name: culpa
+                          guard_name: web
+      tags:
+        - Users
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: ''
+                  example: quisquam
+                username:
+                  type: string
+                  description: ''
+                  example: voluptatem
+                password:
+                  type: string
+                  description: ''
+                  example: quod
+                email:
+                  type: string
+                  description: ''
+                  example: quae
+                roles:
+                  type: array
+                  description: ''
+                  example:
+                    - voluptate
+                  items:
+                    type: string
+                permissions:
+                  type: array
+                  description: ''
+                  example:
+                    - quo
+                  items:
+                    type: string
+              required:
+                - name
+                - username
+                - password
+                - email
+  '/api/admin/users/{id}':
+    get:
+      summary: 'Display the specified user.'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    id: 1
+                    name: est
+                    guard_name: web
+                    roles:
+                      -
+                        id: 1
+                        name: culpa
+                        guard_name: web
+                properties:
+                  data:
+                    type: object
+                    example:
+                      id: 1
+                      name: est
+                      guard_name: web
+                      roles:
+                        -
+                          id: 1
+                          name: culpa
+                          guard_name: web
+      tags:
+        - Users
+    put:
+      summary: 'Update the specified user in storage.'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    id: 1
+                    name: est
+                    guard_name: web
+                    roles:
+                      -
+                        id: 1
+                        name: culpa
+                        guard_name: web
+                properties:
+                  data:
+                    type: object
+                    example:
+                      id: 1
+                      name: est
+                      guard_name: web
+                      roles:
+                        -
+                          id: 1
+                          name: culpa
+                          guard_name: web
+      tags:
+        - Users
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: ''
+                  example: quia
+                username:
+                  type: string
+                  description: ''
+                  example: minus
+                password:
+                  type: string
+                  description: ''
+                  example: null
+                email:
+                  type: string
+                  description: ''
+                  example: inventore
+                roles:
+                  type: array
+                  description: ''
+                  example:
+                    - quibusdam
+                  items:
+                    type: string
+                permissions:
+                  type: array
+                  description: ''
+                  example:
+                    - quis
+                  items:
+                    type: string
+              required:
+                - username
+                - email
+    delete:
+      summary: 'Remove the specified user from storage.'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  success: 'user deleted'
+                properties:
+                  success:
+                    type: string
+                    example: 'user deleted'
+      tags:
+        - Users
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the user.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+tags:
+  -
+    name: Authentication
+    description: ''
+  -
+    name: Permissions
+    description: ''
+  -
+    name: Roles
+    description: ''
+  -
+    name: Users
+    description: ''
+components:
+  securitySchemes:
+    default:
+      type: http
+      scheme: bearer
+      description: ''
+security:
+  -
+    default: []

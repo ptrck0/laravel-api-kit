@@ -1,0 +1,81 @@
+<?php
+
+namespace {{ namespace }};
+
+use {{ namespacedModel }};
+use {{ rootNamespace }}Http\Controllers\Controller;
+use {{ namespacedRequests }}
+use App\Http\Requests\{{ model }}\Store{{ model }}Request;
+use App\Http\Requests\{{ model }}\Update{{ model }}Request;
+use App\Http\Resources\{{ model }}Resource;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
+
+class {{ class }} extends Controller
+{
+
+    private const DEFAULT_RELATIONS = ['permissions'];
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return AnonymousResourceCollection
+     */
+    public function index(): AnonymousResourceCollection
+    {
+        return {{ model }}Resource::collection(
+            {{ model }}::with(self::DEFAULT_RELATIONS)->get()
+        );
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  Store{{ model }}Request  $request
+     * @return {{ model }}Resource
+     */
+    public function store(Store{{ model }}Request $request): {{ model }}Resource
+    {
+        return new {{ model }}Resource(
+            {{ model }}::create($request->validated())->load(self::DEFAULT_RELATIONS)
+        );
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  {{ model }}  $model
+     * @return {{ model }}Resource
+     */
+    public function show({{ model }} $model): {{ model }}Resource
+    {
+        return new {{ model }}Resource($model->load(self::DEFAULT_RELATIONS));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  Update{{ model }}Request  $request
+     * @param  {{ model }}  $model
+     * @return {{ model }}Resource
+     */
+    public function update(Update{{ model }}Request $request, {{ model }} $model): {{ model }}Resource
+    {
+        $model->update($request->validated());
+
+        return new {{ model }}Resource($model->load(self::DEFAULT_RELATIONS));
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  {{ model }}  $model
+     * @return JsonResponse
+     */
+    public function destroy(Request $request): JsonResponse
+    {
+        return response()->json([
+            'success' => '{{ model }} deleted'
+        ]);
+    }
+}

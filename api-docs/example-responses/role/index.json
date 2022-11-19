@@ -1,0 +1,38 @@
+{
+    "data": [
+        {
+            "id": 1,
+            "name": "culpa",
+            "guard_name": "web",
+            "permissions": [
+                {
+                    "id": 1,
+                    "name": "est",
+                    "guard_name": "web"
+                },
+                {
+                    "id": 2,
+                    "name": "vitae",
+                    "guard_name": "web"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "name": "sit",
+            "guard_name": "web",
+            "permissions": [
+                {
+                    "id": 6,
+                    "name": "ut",
+                    "guard_name": "web"
+                },
+                {
+                    "id": 7,
+                    "name": "earum",
+                    "guard_name": "web"
+                }
+            ]
+        }
+    ]
+}

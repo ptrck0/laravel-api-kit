@@ -1,0 +1,696 @@
+{
+    "variable": [
+        {
+            "id": "baseUrl",
+            "key": "baseUrl",
+            "type": "string",
+            "name": "string",
+            "value": "http:\/\/localhost"
+        }
+    ],
+    "info": {
+        "name": "api-kit",
+        "_postman_id": "0f605cc4-fca5-4a7a-a56d-662721fe3ae8",
+        "description": "",
+        "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
+    },
+    "item": [
+        {
+            "name": "Authentication",
+            "description": "",
+            "item": [
+                {
+                    "name": "Login",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/login",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/login"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"username\":\"enim\",\"password\":\"omnis\"}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    \"token\": \"abc123\"\n}\n",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\n    \"error\": \"invalid credentials\"\n}\n",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Logout",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/logout",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/logout"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    \"success\": \"logged out\"\n}\n",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Permissions",
+            "description": "",
+            "item": [
+                {
+                    "name": "Display a listing of the permissions.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/admin\/permissions",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/admin\/permissions"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    \"data\": [\n        {\n            \"id\": 1,\n            \"name\": \"est\",\n            \"guard_name\": \"web\",\n            \"roles\": [\n                {\n                    \"id\": 1,\n                    \"name\": \"culpa\",\n                    \"guard_name\": \"web\"\n                }\n            ]\n        },\n        {\n            \"id\": 2,\n            \"name\": \"vitae\",\n            \"guard_name\": \"web\",\n            \"roles\": [\n                {\n                    \"id\": 1,\n                    \"name\": \"culpa\",\n                    \"guard_name\": \"web\"\n                }\n            ]\n        }\n    ]\n}\n",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Store a newly created permission in storage.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/admin\/permissions",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/admin\/permissions"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"name\":\"fugiat\",\"guard_name\":\"est\",\"roles\":[\"et\"]}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 201,
+                            "body": "{\n    \"data\": {\n        \"id\": 1,\n        \"name\": \"est\",\n        \"guard_name\": \"web\",\n        \"roles\": [\n            {\n                \"id\": 1,\n                \"name\": \"culpa\",\n                \"guard_name\": \"web\"\n            }\n        ]\n    }\n}\n",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Display the specified permission.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/admin\/permissions\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/admin\/permissions\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the permission."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    \"data\": {\n        \"id\": 1,\n        \"name\": \"est\",\n        \"guard_name\": \"web\",\n        \"roles\": [\n            {\n                \"id\": 1,\n                \"name\": \"culpa\",\n                \"guard_name\": \"web\"\n            }\n        ]\n    }\n}\n",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Update the specified permission in storage.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/admin\/permissions\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/admin\/permissions\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the permission."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"name\":\"perspiciatis\",\"guard_name\":\"et\",\"roles\":[\"consequuntur\"]}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    \"data\": {\n        \"id\": 1,\n        \"name\": \"est\",\n        \"guard_name\": \"web\",\n        \"roles\": [\n            {\n                \"id\": 1,\n                \"name\": \"culpa\",\n                \"guard_name\": \"web\"\n            }\n        ]\n    }\n}\n",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Remove the specified permission from storage.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/admin\/permissions\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/admin\/permissions\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the permission."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    \"success\" : \"permission deleted\"\n}\n",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Roles",
+            "description": "",
+            "item": [
+                {
+                    "name": "Display a listing of the roles.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/admin\/roles",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/admin\/roles"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    \"data\": [\n        {\n            \"id\": 1,\n            \"name\": \"culpa\",\n            \"guard_name\": \"web\",\n            \"permissions\": [\n                {\n                    \"id\": 1,\n                    \"name\": \"est\",\n                    \"guard_name\": \"web\"\n                },\n                {\n                    \"id\": 2,\n                    \"name\": \"vitae\",\n                    \"guard_name\": \"web\"\n                }\n            ]\n        },\n        {\n            \"id\": 2,\n            \"name\": \"sit\",\n            \"guard_name\": \"web\",\n            \"permissions\": [\n                {\n                    \"id\": 6,\n                    \"name\": \"ut\",\n                    \"guard_name\": \"web\"\n                },\n                {\n                    \"id\": 7,\n                    \"name\": \"earum\",\n                    \"guard_name\": \"web\"\n                }\n            ]\n        }\n    ]\n}\n",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Store a newly created role in storage.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/admin\/roles",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/admin\/roles"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"name\":\"qui\",\"guard_name\":\"nulla\",\"permissions\":[\"quia\"]}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 201,
+                            "body": "{\n    \"data\": {\n        \"id\": 1,\n        \"name\": \"culpa\",\n        \"guard_name\": \"web\",\n        \"permissions\": [\n            {\n                \"id\": 1,\n                \"name\": \"est\",\n                \"guard_name\": \"web\"\n            },\n            {\n                \"id\": 2,\n                \"name\": \"vitae\",\n                \"guard_name\": \"web\"\n            }\n        ]\n    }\n}\n",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Display the specified role.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/admin\/roles\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/admin\/roles\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the role."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    \"data\": {\n        \"id\": 1,\n        \"name\": \"culpa\",\n        \"guard_name\": \"web\",\n        \"permissions\": [\n            {\n                \"id\": 1,\n                \"name\": \"est\",\n                \"guard_name\": \"web\"\n            },\n            {\n                \"id\": 2,\n                \"name\": \"vitae\",\n                \"guard_name\": \"web\"\n            }\n        ]\n    }\n}\n",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Update the specified role in storage.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/admin\/roles\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/admin\/roles\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the role."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"name\":\"eius\",\"guard_name\":\"laudantium\",\"permissions\":[\"dolorum\"]}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    \"data\": {\n        \"id\": 1,\n        \"name\": \"culpa\",\n        \"guard_name\": \"web\",\n        \"permissions\": [\n            {\n                \"id\": 1,\n                \"name\": \"est\",\n                \"guard_name\": \"web\"\n            },\n            {\n                \"id\": 2,\n                \"name\": \"vitae\",\n                \"guard_name\": \"web\"\n            }\n        ]\n    }\n}\n",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Remove the specified role from storage.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/admin\/roles\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/admin\/roles\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the role."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    \"success\" : \"role deleted\"\n}\n",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Users",
+            "description": "",
+            "item": [
+                {
+                    "name": "Display a listing of the users.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/admin\/users",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/admin\/users"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    \"data\": [\n        {\n            \"id\": 1,\n            \"name\": \"est\",\n            \"guard_name\": \"web\",\n            \"roles\": [\n                {\n                    \"id\": 1,\n                    \"name\": \"culpa\",\n                    \"guard_name\": \"web\"\n                }\n            ]\n        },\n        {\n            \"id\": 2,\n            \"name\": \"vitae\",\n            \"guard_name\": \"web\",\n            \"roles\": [\n                {\n                    \"id\": 1,\n                    \"name\": \"culpa\",\n                    \"guard_name\": \"web\"\n                }\n            ]\n        }\n    ]\n}\n",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Store a newly created user in storage.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/admin\/users",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/admin\/users"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"name\":\"quisquam\",\"username\":\"voluptatem\",\"password\":\"quod\",\"email\":\"quae\",\"roles\":[\"voluptate\"],\"permissions\":[\"quo\"]}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 201,
+                            "body": "{\n    \"data\": {\n        \"id\": 1,\n        \"name\": \"est\",\n        \"guard_name\": \"web\",\n        \"roles\": [\n            {\n                \"id\": 1,\n                \"name\": \"culpa\",\n                \"guard_name\": \"web\"\n            }\n        ]\n    }\n}\n",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Display the specified user.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/admin\/users\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/admin\/users\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the user."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    \"data\": {\n        \"id\": 1,\n        \"name\": \"est\",\n        \"guard_name\": \"web\",\n        \"roles\": [\n            {\n                \"id\": 1,\n                \"name\": \"culpa\",\n                \"guard_name\": \"web\"\n            }\n        ]\n    }\n}\n",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Update the specified user in storage.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/admin\/users\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/admin\/users\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the user."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"name\":\"quia\",\"username\":\"minus\",\"email\":\"inventore\",\"roles\":[\"quibusdam\"],\"permissions\":[\"quis\"]}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    \"data\": {\n        \"id\": 1,\n        \"name\": \"est\",\n        \"guard_name\": \"web\",\n        \"roles\": [\n            {\n                \"id\": 1,\n                \"name\": \"culpa\",\n                \"guard_name\": \"web\"\n            }\n        ]\n    }\n}\n",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Remove the specified user from storage.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/admin\/users\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/admin\/users\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the user."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    \"success\" : \"user deleted\"\n}\n",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "auth": {
+        "type": "bearer",
+        "bearer": [
+            {
+                "key": "token",
+                "value": null,
+                "type": "string"
+            }
+        ]
+    }
+}
